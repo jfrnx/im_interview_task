@@ -20,6 +20,8 @@ class Columns(Enum):
             source_name (str): source column name of the data structure
             target_name (str): desired column name of new data structure
             data_type (str): type of data the column should contain (datetime, numeric)
+        Return:
+            obj (Columns): returns a new Columns enum
         """
 
         obj = object.__new__(cls)
