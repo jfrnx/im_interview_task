@@ -5,7 +5,7 @@ The aim of this project is to download a file from a gcs cloud bucket for the cu
 TODO:
 - 
 - Split reusable code into modules and split the config variables to only be accessed by the code that uses them
-- Implement GCS utility methods for connecting to a bucket with an access account
+- Implement GCS utility methods for connecting to a bucket with a service account
 - Extend unit test coverage
 - Move logging config to separate config file
 - Improve error handling
