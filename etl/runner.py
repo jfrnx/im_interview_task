@@ -11,7 +11,7 @@ if __name__ == "__main__":
     logging.info("Starting process")
 
     logging.info("Pulling from bucket")
-    # CloudUtil.pull()
+    CloudUtil.pull()
     logging.info("Successfully pulled from bucket")
 
     pandas.options.mode.use_inf_as_na = True
@@ -50,6 +50,6 @@ if __name__ == "__main__":
     logging.info("Finished calculations for weekly metrics")
 
     logging.info("Pushing to cloud")
-    # CloudUtil.push(config.daily_file, config.daily_object_name)
-    # CloudUtil.push(config.weekly_file, config.weekly_object_name)
+    CloudUtil.push(config.daily_file, config.daily_object_name)
+    CloudUtil.push(config.weekly_file, config.weekly_object_name)
     logging.info("Successfully pushed to cloud")
