@@ -1,8 +1,8 @@
 import pandas
-from task.DataCleanser import DataCleanser
-from task.Column import Columns
-from task.CloudUtil import pull_today_csv
-from task import config
+from task.etl.data_cleanser import DataCleanser
+from task.etl.column import Columns
+from task.etl.cloud_util import pull_today_csv
+from task.etl import config
 
 
 def calculate_clicks(column1, column2):
@@ -44,7 +44,7 @@ if __name__ == "__main__":
     pull_today_csv(config.source_bucket_name)
 
     pandas.options.mode.use_inf_as_na = True
-    source_data_frame = pandas.read_csv("tmp/source.csv")
+    source_data_frame = pandas.read_csv("../tmp/source.csv")
 
     for c in list(Columns):
         DataCleanser.normalize_mapped_column_name(source_data_frame, c.value, c.target_name)
