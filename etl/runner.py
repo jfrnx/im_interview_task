@@ -36,22 +36,22 @@ def calculate_daily_metrics(data_frame):
 
 
 def calculate_weekly_metrics(data_frame):
-
+    # print(data_frame.groupby(data_frame['creative_date'].dt.week))
     return data_frame
 
 
 if __name__ == "__main__":
-    pull_today_csv(config.source_bucket_name)
+    # pull_today_csv(config.source_bucket_name)
 
     pandas.options.mode.use_inf_as_na = True
-    source_data_frame = pandas.read_csv("../tmp/source.csv")
+    source_data_frame = pandas.read_csv("tmp/source.csv")
 
     for c in list(Columns):
         DataCleanser.normalize_mapped_column_name(source_data_frame, c.value, c.target_name)
         if c.data_type == "datetime":
             DataCleanser.clean_date_column(source_data_frame, c.target_name)
         elif c.data_type == "numeric":
-            DataCleanser.clean_integer_column(source_data_frame, c.target_name)
+            DataCleanser.clean_numeric_column(source_data_frame, c.target_name)
 
     source_data_frame.dropna(inplace=True)
     DataCleanser.clean_zero_value_column(source_data_frame, Columns.creative_impressions.target_name)

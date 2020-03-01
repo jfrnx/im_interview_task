@@ -13,6 +13,15 @@ class Columns(Enum):
     cpconv = "CPConv (£)", "cpconv", "numeric"
 
     def __new__(cls, source_name, target_name, data_type):
+        """
+        Define columns in the data structure
+
+        Args:
+            source_name (str): source column name of the data structure
+            target_name (str): desired column name of new data structure
+            data_type (str): type of data the column should contain (datetime, numeric)
+        """
+
         obj = object.__new__(cls)
         obj._value_ = source_name
         obj.target_name = target_name
